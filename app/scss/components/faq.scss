@@ -1,0 +1,100 @@
+// Import all. (also works with nameSpace)
+@use '../util' as *;
+
+.section-faq {
+  max-width: 144rem;
+  margin: 0 auto;
+}
+
+.faq {
+  font-size: 1.4rem;
+  line-height: 1.4rem;
+  color: var(--text-gray-blue);
+  font-weight: 400;
+  background-color: var(--white);
+  border-radius: 2.3rem;
+  box-shadow: 0px 50px 50px -20px var(--shadow-blue);
+
+  display: grid;
+  grid-template-columns: 46rem 46rem;
+  grid-template-rows: 25.4rem 25.4rem;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
+
+  &__info-container {
+    grid-column: 2 / 3;
+    grid-row: 1 / span 2;
+    align-self: center;
+    padding-right: 9.5rem;
+  }
+
+  &__heading {
+    font-size: 3.2rem;
+    line-height: 3.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-gray-blue-dark); 
+    margin-bottom: 4.5rem;
+  }
+
+  &__img {
+    
+    &--woman {
+      transform: translate(-18%,-92%); 
+    }
+    
+    &--pattern {
+      width: 90.2rem;
+      transform: translate(-57%, 26%);
+    }
+
+    &--box {
+      transform: translate(-48%, -107%);
+      position: fixed; // Ignore parent > overflow: hidden.
+      z-index: 99999; 
+    }
+  }
+
+  &__info-list {
+    display: block; 
+    list-style: none;
+    
+    &-item { 
+      cursor: pointer;
+      padding-bottom: 1.9rem;
+      border-bottom: 1px solid var(--text-divider);
+      margin: 1.6rem 0;
+      
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .arrow {
+    margin-right: 2.42rem;
+  }
+
+  &__info-question-box {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__info-question {
+    transition: all 200ms ease-out;
+   
+    &:hover {
+      color: var(--orange);
+    }
+  }
+
+  &__info-answer {
+    margin-top: 1.1rem;
+  }
+}
+
+
+

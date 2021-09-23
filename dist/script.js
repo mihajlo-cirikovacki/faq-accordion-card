@@ -1,0 +1,2 @@
+"use strict";var faqInfoList=document.querySelector(".faq__info-list");faqInfoList.addEventListener("click",(function(e){var t=e.target.closest(".faq__info-list-item"),s=t.querySelector(".faq__info-question"),i=t.querySelector(".arrow");if(t){var o=t.querySelector(".faq__info-answer");o.classList.toggle("hidden"),"hidden"!==o.classList&&(s.classList.toggle("active"),i.classList.toggle("arrow-down"))}}));
+//# sourceMappingURL=script.js.map
