@@ -169,6 +169,17 @@
     display: flex;
     justify-content: space-between;
 
+    // Changing state on click:
+    &[aria-expanded="true"] + .faq__info-answer {
+      display: block;
+      animation: slide-down 400ms ease-in;
+    }
+
+    &[aria-expanded="true"] .faq__info-question {
+      font-weight: 700;
+      color: hsla(238, 29%, 17%, 1);
+    }
+
     @include respond(sm-phone) {
       gap: 2rem;
     }
@@ -178,11 +189,6 @@
     &:hover {
       color: var(--orange);
     }
-
-    &--active {
-      font-weight: 700;
-      color: hsla(238, 29%, 17%, 1);
-    } 
   }
 
   &__info-answer {
@@ -190,13 +196,7 @@
     font-size: 1.2rem;
     line-height: 1.8rem;
     display: none;
-
-    &--active {
-      display: block;
-      animation: slide-down 400ms ease-in;
-    }
   }
 }
-
 
 

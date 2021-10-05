@@ -3,32 +3,19 @@
 const faqInfoList = document.querySelector('.faq__info-list');
 const infoAnswers = document.querySelectorAll('.faq__info-answer');
 
-// EVENT LISTENERS:
-faqInfoList.addEventListener('click', (e) => {
- const currItem = e.target.closest('.faq__info-list-item');
- const question = currItem.querySelector('.faq__info-question');
- const arrow = currItem.querySelector('.arrow');
- const answer = currItem.querySelector('.faq__info-answer');
+// Event Listener:
+faqInfoList.addEventListener('click', (e) => { 
+  const currItem = e.target.closest('.faq__info-question-box');
+  const itemState = currItem.getAttribute('aria-expanded');
 
- if (!currItem) return; // Guard clauses
- 
- // REMOVE CLASES:
- infoAnswers.forEach(e => {
-  e.classList.remove('faq__info-answer--active');
-  e.previousElementSibling.querySelector('.faq__info-question').classList.remove('faq__info-question--active');
-  e.previousElementSibling.querySelector('.arrow').classList.remove('arrow--down')
- });
+  const items = faqInfoList.querySelectorAll('.faq__info-question-box');
 
- // ADD CLASSES:
- answer.classList.add('faq__info-answer--active');
- question.classList.add('faq__info-question--active');
- arrow.classList.add('arrow--down'); 
+  items.forEach(item => item.setAttribute('aria-expanded', 'false'));
 
-});
-
-
-
-
+  if (itemState === 'false') {
+    currItem.setAttribute('aria-expanded', 'true');
+  }
+})
 
 
 
