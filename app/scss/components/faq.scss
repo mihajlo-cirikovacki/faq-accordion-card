@@ -2,13 +2,21 @@
 @use '../util' as *;
 
 .section-faq {
-  max-width: 144rem;
-  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  @include respond(sm-phone) {
-    margin: 14.8rem auto 8.5rem auto; // Dda smanjim
+  // TAB-LAND
+  @include respond(tab-land) {
+    padding-top: 8rem;
   }
 
+  // PHONE
+  @include respond(phone) {
+    padding-top: 0;
+    margin: 14.8rem auto 8.5rem auto; // Dda smanjim
+  }
 }
 
 .faq {
@@ -29,20 +37,27 @@
   position: relative;
   overflow: hidden;
 
-   // PHONE
-   @include respond(sm-phone) {
-    grid-template-columns: 32.7rem;
-    grid-template-rows: 53.5rem;
+  // TAB-LAND
+  @include respond(tab-land) {
+    grid-template-columns: 51rem;
+    grid-template-rows: 60rem;
     overflow: visible;
   }
 
+   // PHONE
+  @include respond(phone) {
+    grid-template-columns: 32.7rem;
+    grid-template-rows: 53.5rem;
+  }
+
   &__imgs {
-     // PHONE
-     @include respond(sm-phone) {
+
+    // TAB-LAND
+    @include respond(tab-land) {
       grid-column: 1;
       grid-row: 1; 
       align-self: center;
-      justify-self: center;   
+      justify-self: center;  
     }
   }
 
@@ -53,13 +68,19 @@
     padding-right: 9.5rem;
     margin-top: 4.3rem;
 
-    // PHONE
-    @include respond(sm-phone) {
+    // TAB-LAND
+    @include respond(tab-land) {
       grid-column: 1;
       grid-row: 1;
+      align-self: center;
+      padding: 0 2.3rem 4.8rem 2.4rem;
+      margin-top: 21rem;
+    }
+
+    // PHONE
+    @include respond(phone) {
       align-self: end;
       justify-self: end;
-      padding: 0 2.3rem 4.8rem 2.4rem;
     }
   }
 
@@ -75,27 +96,43 @@
     grid-row: 1 / 2;
     align-self: start;
 
-     // PHONE
-     @include respond(sm-phone) {
+    // TAB-LAND
+    @include respond(tab-land) {
+      grid-column: 1;
       text-align: center;
+      margin-top: 17rem;
+      margin-bottom: 4rem;
+    }
+
+     // PHONE
+     @include respond(phone) {
       margin-top: 11.5rem;
       margin-bottom: 3.8rem;
-      grid-column: 1;
     }
   }
 
   &__img {
 
+    // TAB-LAND
+    @include respond(tab-land) {
+      width: 35rem;
+    }
+
      // PHONE
-    @include respond(sm-phone) {
+    @include respond(phone) {
       width: 23.7rem;
     }
     
     &--woman {
       transform: translate(-18%,-92%); 
 
+      // TAB-LAND
+      @include respond(tab-land) {
+        transform: translate(22%,-186%);
+      }
+
       // PHONE
-      @include respond(sm-phone) {
+      @include respond(phone) {
         transform: translate(18%,-223%);
       }
     }
@@ -104,8 +141,14 @@
       width: 90.2rem;
       transform: translate(-57%, 26%);
 
+      // TAB-LAND
+      @include respond(tab-land) {
+        width: 35rem;
+        transform: translate(22%, -56%);
+      }
+
       // PHONE
-      @include respond(sm-phone) {
+      @include respond(phone) {
         width: 24rem;
         transform: translate(17%, -83%);
       }
@@ -115,12 +158,17 @@
       transform: translate(-48%, -107%);
       position: fixed; // Ignore parent > overflow: hidden.
       z-index: 99999;
-      
-       // PHONE
-      @include respond(sm-phone) {
+
+      // TAB-LAND
+      @include respond(tab-land) {
         transform: translate(-206%, -104%);
         position: absolute;
         width: 10rem;
+      }
+      
+       // PHONE
+      @include respond(phone) {
+        transform: translate(-206%, -104%);
       }
     }
   }
@@ -134,9 +182,7 @@
       padding-bottom: 1.9rem;
       border-bottom: 1px solid var(--text-divider);
       margin: 1.6rem 0;
-      //transition: opacity 1s ease; // Da nadjem gde treba da stavim.
       
-
       @keyframes slide-down {
         0% {
           opacity: 0;
@@ -156,11 +202,7 @@
   .arrow {
     margin-right: 2.42rem;
 
-    &--down {
-      transform: rotate(180deg);
-    }
-
-    @include respond(sm-phone) {
+    @include respond(phone) {
       margin-right: 0rem;
     }
   }
@@ -180,7 +222,11 @@
       color: hsla(238, 29%, 17%, 1);
     }
 
-    @include respond(sm-phone) {
+    &[aria-expanded="true"] .arrow {
+      transform: rotate(180deg);
+    } 
+
+    @include respond(phone) {
       gap: 2rem;
     }
   }
