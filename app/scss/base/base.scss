@@ -1,3 +1,4 @@
+@use '../util' as *;
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
 
 // ***** RESETS *****
@@ -12,6 +13,11 @@
 html {
   // 1 rem = 10px > 10:16 = 0.625‬ > 62.5% 
   font-size: 62.5%;
+
+  // PHONE
+  @include respond(sm-phone) {
+
+  }
 }
 
 body {
@@ -25,6 +31,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  // PHONE
+  @include respond(sm-phone) {
+    min-height: 76.8rem;
+  }
 }
 
 

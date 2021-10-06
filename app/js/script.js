@@ -1,27 +1,21 @@
 'use strict';
 
 const faqInfoList = document.querySelector('.faq__info-list');
+const infoAnswers = document.querySelectorAll('.faq__info-answer');
 
-// EVENT LISTENERS:
-faqInfoList.addEventListener('click', (e) => {
- const item = e.target.closest('.faq__info-list-item');
- const question = item.querySelector('.faq__info-question');
- const arrow = item.querySelector('.arrow');
+// Event Listener:
+faqInfoList.addEventListener('click', (e) => { 
+  const currItem = e.target.closest('.faq__info-question-box');
+  const itemState = currItem.getAttribute('aria-expanded');
 
- if (!item) return; // Guard clauses
-  
-  const answer = item.querySelector('.faq__info-answer');
-  answer.classList.toggle('hidden');
-  
-  if(answer.classList !== 'hidden') {
-    question.classList.toggle('active');
-    arrow.classList.toggle('arrow-down')
+  const items = faqInfoList.querySelectorAll('.faq__info-question-box');
+
+  items.forEach(item => item.setAttribute('aria-expanded', 'false'));
+
+  if (itemState === 'false') {
+    currItem.setAttribute('aria-expanded', 'true');
   }
-});
-
-
-
-
+})
 
 
 
